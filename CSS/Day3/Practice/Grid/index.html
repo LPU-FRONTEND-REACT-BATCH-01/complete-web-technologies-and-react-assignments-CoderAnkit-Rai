@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Position Demo</title>
+
+<style>
+.container {
+  width: 500px;
+  height: 500px;
+  background-color: bisque;
+  position: relative;
+  margin: 100px auto;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(255,125,225);
+  margin: 10px;
+  border: 5px solid black;
+}
+
+
+.items1 {
+  position: static;
+}
+
+
+.items2 {
+  position: absolute;
+  top: 50px;
+  left: 150px;
+ 
+}
+
+
+.items3 {
+  position: sticky;
+  top: 0;
+  background: lightgreen;
+  
+}
+
+body{
+    height: 1000px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="items1 item">Item 1 (static)</div>
+  <div class="items2 item">Item 2 (absolute)</div>
+  <div class="items3 item">Item 3 (sticky)</div>
+</div>
+
+</body>
+</html>
