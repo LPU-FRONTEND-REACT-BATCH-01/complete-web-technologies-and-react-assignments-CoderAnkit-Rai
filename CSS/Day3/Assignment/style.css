@@ -1,0 +1,125 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Navbar */
+nav {
+    height: 56px;
+    background: linear-gradient(to right, #1f232b, #242a33);
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    position: relative;
+}
+
+/* 🔽 Logo (10%) */
+.logo-version {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #9ba3af;
+    font-size: 12px;
+    width: 10%;
+    min-width: 100px;
+}
+
+.logo-version img {
+    width: 20px;
+}
+
+/* 🔥 Center Search (fixed 850px) */
+.search-bar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 850px;
+}
+
+/* Search box */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #2a2f37;
+    border-radius: 999px;
+    height: 40px;
+    padding: 0 16px;
+}
+
+/* Icon */
+.search-container i {
+    color: #8b949e;
+    font-size: 13px;
+}
+
+/* Input */
+.search-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #e6edf3;
+    font-size: 14px;
+}
+
+/* Ctrl K */
+.kbd {
+    font-size: 11px;
+    color: #8b949e;
+    background: #1f232b;
+    padding: 3px 7px;
+    border-radius: 6px;
+}
+
+/* 🔼 Right section */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: auto;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 16px;
+}
+
+.menu a {
+    color: #c9d1d9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: #ffffff;
+}
+
+/* Icons */
+.icons {
+    display: flex;
+    gap: 14px;
+    color: #c9d1d9;
+    font-size: 15px;
+}
+
+.icons i {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
+.icons i:hover {
+    opacity: 1;
+} 
