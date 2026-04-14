@@ -4,10 +4,9 @@ let transactions = [];
 function deposit(amount) {
     if (amount <= 0) {
         console.log("Deposit must be greater than 0");
-        console.log("Deposited: " + amount);
         return;
     }
-
+    console.log("Deposited: " + amount);
     balance += amount;
     transactions.push("Deposited: ₹" + amount);
 }
@@ -33,8 +32,8 @@ function withdraw(amount) {
         return;
     }
 
-    balance -= amount;
-    transactions.push("Withdrawn: ₹" + amount);
+    balance = balance - amount;
+    transactions.push("Withdrawn: ₹" + amount);git 
 }
 
 function getBalance() {
