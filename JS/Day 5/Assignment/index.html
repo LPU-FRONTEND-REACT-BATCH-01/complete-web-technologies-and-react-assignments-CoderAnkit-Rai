@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini E-Commerce</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: black;
+            padding: 10px;
+        }
+
+        .navbar button {
+            background-color: aqua;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: lightblue;
+        }
+
+        
+        .page {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 8px;
+        }
+
+        button {
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('products')">Products</button>
+    <button onclick="showPage('cart')">Cart</button>
+</div>
+
+<hr>
+
+<div id="loginPage" class="page">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter name">
+    <button onclick="login()">Login</button>
+</div>
+
+<div id="productPage" class="page" style="display:none;">
+    <h2>Products</h2>
+    <div id="products"></div>
+</div>
+
+<div id="cartPage" class="page" style="display:none;">
+    <h2>Cart</h2>
+    <div id="cart"></div>
+    <h3 id="total"></h3>
+</div>
+
+<script src="Task.js"></script>
+</body>
+</html>
