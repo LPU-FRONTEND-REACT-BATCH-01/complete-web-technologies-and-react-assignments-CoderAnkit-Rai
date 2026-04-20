@@ -215,18 +215,19 @@ import { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
 
   return (
     <div>
-      <h1>{count}</h1>
-      <h1>This is Count: {count}</h1>
+      <h1>First Count: {count}</h1>
+      <h1>Second Count: {count1}</h1>
 
       <button onClick={() => setCount((prev) => prev + 1)}>
-        Click
+        Increase First Count
       </button>
 
-      <button onClick={() => setCount((prev) => prev + 2)}>
-        For 2nd count
+      <button onClick={() => setCount1((prev) => prev + 1)}>
+        Increase Second Count
       </button>
     </div>
   );
