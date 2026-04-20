@@ -1,0 +1,45 @@
+text-decoration
+i) text-decoration-line
+ii)text-decoration-size
+iii)text-decoration-style
+iv)text-decoration-color
+
+
+text-shadow has 4 parameter x offset  y offset  blur radious  color
+
+
+border-radious
+border-top-left-radious
+border-top-right-radious
+border-bottom-left-radious
+border-bottom-right-radious
+
+
+
+1 value  -> all side
+2 value   -> top left bottom right,top right bottom left
+3 value  -> top left,top right bottom left,bottom right
+4 value  ->   top left, top right, bottom right, bottom left
+
+
+Named Colors – Predefined color names like red, blue, green.
+Hexadecimal (Hex) – #RRGGBB or #RGB, uses hexadecimal digits.
+RGB – rgb(r, g, b), values 0–255 for red, green, blue.
+RGBA – rgba(r, g, b, a), RGB + alpha (transparency 0–1).
+HSL – hsl(h, s%, l%), hue, saturation, lightness.
+HSLA – hsla(h, s%, l%, a), HSL + alpha (transparency 0–1).
+CurrentColor – Uses the current text color.
+Transparent – Fully transparent color.
+CSS System Colors – Colors that match OS interface elements (deprecated).
+
+
+CSS Gradients
+
+Linear Gradient – Color transition in a straight line (top→bottom, left→right, diagonal).
+background: linear-gradient(to right, red, yellow);
+Radial Gradient – Color transition from a center point outward in a circular or elliptical shape.
+background: radial-gradient(circle, red, yellow) (circle at top,left,right,bottom,top left,top right);
+Conic Gradient – Color transition around a center point like a pie chart.
+background: conic-gradient(red, yellow, green);
+Repeating Gradients – Repeats linear, radial, or conic gradients for patterns.
+background: repeating-linear-gradient(45deg, red, yellow 20px);

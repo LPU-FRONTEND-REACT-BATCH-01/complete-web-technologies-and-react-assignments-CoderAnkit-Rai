@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Booking Form</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0 10px 0;
+        }
+        .inline {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form>
+
+        <h3>Name</h3>
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" class="inline"> Male
+        <input type="radio" name="gender" class="inline"> Female
+
+        <br><br>
+
+        <label>E-mail</label>
+        <input type="email" placeholder="ex: myemail@gmail.com">
+
+        <label>Room Type</label>
+        <select>
+            <option>--Select--</option>
+            <option>Single</option>
+            <option>Double</option>
+            <option>XL</option>
+        </select>
+
+        <label>Number of Guests</label>
+        <input type="number" placeholder="eg: 1,2,3">
+
+        <label>Arrival Date & Time</label>
+        <input type="date">
+        <input type="time">
+
+        <label>Departure Date</label>
+        <input type="date">
+
+        <label>City</label>
+        <select>
+            <option>--Select--</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Bangalore</option>
+        </select>
+
+        <br>
+        <input type="checkbox" class="inline"> Agree Terms and Conditions
+
+        <br><br>
+
+        <label>Special Requests</label>
+        <textarea rows="4"></textarea>
+
+        <br>
+        <button type="submit">Submit</button>
+
+    </form>
+</div>
+
+</body>
+</html>

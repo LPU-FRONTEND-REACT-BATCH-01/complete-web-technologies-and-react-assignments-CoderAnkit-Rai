@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid Exact</title>
+
+<style>
+body {
+  margin: 0;
+  background: #2c2f5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px;
+  grid-template-rows: 100px 100px 100px;
+  gap: 10px;
+}
+
+.box {
+  border-radius: 5px;
+}
+
+
+.green { background: #6cc04a; }
+.red { background: #ff2d2d; }
+.yellow { background: #f5a623; }
+
+
+
+.box1 {
+  grid-row: 1 / 4;
+}
+
+.box2 {
+  grid-column: 2 / 4;
+}
+
+
+.box3 {
+  grid-column: 4 / 5;
+}
+
+.box4 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.box5 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.box6 {
+  grid-column: 4 / 5;
+  grid-row: 2 / 4;
+}
+
+.box7 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.box8 {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid">
+  <div class="box green box1"></div>
+
+  <div class="box green box2"></div>
+  <div class="box red box3"></div>
+
+  <div class="box yellow box4"></div>
+  <div class="box red box5"></div>
+
+  <div class="box green box6"></div>
+
+  <div class="box red box7"></div>
+  <div class="box yellow box8"></div>
+</div>
+
+</body>
+</html>

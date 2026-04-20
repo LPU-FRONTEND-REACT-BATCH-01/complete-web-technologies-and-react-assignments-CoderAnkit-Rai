@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React</title>
+  <style>
+    /* ── Exact fonts from react.dev ── */
+    @font-face {
+      font-family: 'Optimistic Display';
+      src: url('https://react.dev/fonts/Optimistic_Display_W_Bd.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Optimistic Text';
+      src: url('https://react.dev/fonts/Optimistic_Text_W_Rg.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Optimistic Text';
+      src: url('https://react.dev/fonts/Optimistic_Text_W_Md.woff2') format('woff2');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+
+    /* ── Exact color tokens from colors.js ── */
+    :root {
+      --wash-dark:    #23272F; /* gray-90  — page bg */
+      --card-dark:    #343A46; /* gray-80  — search bg */
+      --gray-70:      #404756; /* search border, secondary-button-dark */
+      --gray-60:      #4E5769;
+      --gray-50:      #5E687E;
+      --gray-30:      #99A1B3; /* tertiary-dark — subtitle */
+      --gray-20:      #BCC1CD;
+      --gray-10:      #EBECF0;
+      --gray-5:       #F6F7F9;
+      --blue-40:      #149ECA; /* brand blue — Learn React btn */
+      --blue-30:      #58C4DC; /* link-dark, logo color */
+      --primary-dark: #F6F7F9; /* heading text */
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      background-color: var(--wash-dark);
+      font-family: 'Optimistic Text', -apple-system, ui-sans-serif, system-ui, sans-serif;
+      color: var(--primary-dark);
+      min-height: 100vh;
+    }
+
+    /* ════════════════════════════════
+       NAVBAR  — exact shadow from tailwind.config: nav-dark
+       ════════════════════════════════ */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      padding: 0 20px;
+      background-color: var(--wash-dark);
+      box-shadow: 0 16px 32px -16px rgba(0,0,0,.1), 0 0 0 1px rgba(255,255,255,.05);
+      gap: 8px;
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .nav-logo svg { width: 28px; height: 28px; }
+
+    /* v19.2 */
+    .nav-version {
+      font-size: 13px;
+      color: var(--gray-50);
+      font-family: 'Optimistic Text', sans-serif;
+      font-weight: 400;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    /* Search bar */
+    .nav-search {
+      display: flex;
+      align-items: center;
+      background-color: var(--card-dark);
+      box-shadow: inset 0 0 0 1px var(--gray-70);
+      border-radius: 20px;
+      padding: 0 12px;
+      height: 34px;
+      gap: 8px;
+      cursor: pointer;
+      flex: 1;
+      max-width: 850px;
+      min-width: 140px;
+      transition: box-shadow .15s;
+    }
+    .nav-search:hover {
+      box-shadow: inset 0 0 0 1px var(--blue-30);
+    }
+    .nav-search-icon { color: var(--gray-50); flex-shrink: 0; }
+    .nav-search-label {
+      color: var(--gray-50);
+      font-size: 14px;
+      flex: 1;
+      user-select: none;
+      font-family: 'Optimistic Text', sans-serif;
+    }
+    .nav-search-kbd {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+    .nav-search-kbd kbd {
+      background: var(--gray-70);
+      color: var(--gray-30);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 11px;
+      font-family: 'Optimistic Text', sans-serif;
+      line-height: 1.5;
+      border: none;
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+    .nav-links a {
+      color: var(--gray-20);
+      color:white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      font-family: 'Optimistic Text', sans-serif;
+      padding: 0 12px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      transition: color .15s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* Icon buttons */
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-20);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .15s, color .15s;
+      flex-shrink: 0;
+    }
+    .icon-btn:hover { background: var(--card-dark); color: #fff; }
+
+    /* ════════════════════════════════
+       HERO
+       ════════════════════════════════ */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px 100px;
+      text-align: center;
+      background-color: var(--wash-dark);
+    }
+
+    /* React logo — orbits spin, center dot fixed */
+    .hero-logo {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin-bottom: 28px;
+    }
+    .hero-logo .orbits {
+      width: 120px;
+      height: 120px;
+      animation: logo-spin 20s linear infinite;
+    }
+    .hero-logo .nucleus {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: var(--blue-30);
+      border-radius: 50%;
+    }
+    
+    /* Heading */
+    .hero h1 {
+      font-family: 'Optimistic Display', -apple-system, sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    /* Subtitle */
+    .hero p {
+      font-family: 'Optimistic Text', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--gray-30);
+      margin-bottom: 40px;
+      max-width: 560px;
+      line-height: 1.5;
+    }
+
+    /* Buttons */
+    .hero-btns { display: flex; align-items: center; gap: 12px; }
+
+    .btn-learn {
+      background-color: var(--blue-40);
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: 'Optimistic Text', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-learn:hover { background-color: #0f8ab3; }
+
+    .btn-api {
+      background-color: transparent;
+      color: var(--primary-dark);
+      /* exact shadow token: secondary-button-stroke-dark */
+      box-shadow: inset 0 0 0 1px var(--gray-70);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 17px;
+      font-weight: 500;
+      font-family: 'Optimistic Text', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      transition: box-shadow .2s, color .2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-api:hover { box-shadow: inset 0 0 0 1px var(--blue-30); color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="top-nav">
+
+  <!-- React logo -->
+  <a href="https://react.dev" class="nav-logo" aria-label="React">
+    <svg width="28" height="28" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="2.05" fill="#58C4DC"/>
+      <g stroke="#58C4DC" stroke-width="1" fill="none">
+        <ellipse rx="11" ry="4.2"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+      </g>
+    </svg>
+  </a>
+
+  <span class="nav-version">v19.2</span>
+
+  <!-- Search -->
+  <div class="nav-search" role="search">
+    <svg class="nav-search-icon" width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <circle cx="9" cy="9" r="7"/>
+      <line x1="14.5" y1="14.5" x2="18" y2="18"/>
+    </svg>
+    <span class="nav-search-label">Search</span>
+    <div class="nav-search-kbd" aria-hidden="true">
+      <kbd>ctrl</kbd><kbd>K</kbd>
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div class="nav-links">
+    <a href="https://react.dev/learn">Learn</a>
+    <a href="https://react.dev/reference/react">Reference</a>
+    <a href="https://react.dev/community">Community</a>
+    <a href="https://react.dev/blog">Blog</a>
+  </div>
+
+  <!-- Icons -->
+  <div class="nav-icons">
+    <!-- Sun (theme toggle) -->
+    <button class="icon-btn" aria-label="Toggle dark mode">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+
+    <!-- Language / translate -->
+    <button class="icon-btn" aria-label="Change language">
+      <!-- exact icon react.dev uses: two overlapping A letters -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 8l6 6"/>
+        <path d="M4 14l6-6 2-3"/>
+        <path d="M2 5h12"/>
+        <path d="M7 2h1"/>
+        <path d="M22 22l-5-10-5 10"/>
+        <path d="M14 18h6"/>
+      </svg>
+    </button>
+
+    <!-- GitHub -->
+    <button class="icon-btn" aria-label="React on GitHub" onclick="window.open('https://github.com/facebook/react','_blank')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-logo" aria-hidden="true">
+    <!-- Only orbits spin -->
+    <svg class="orbits" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#58C4DC" stroke-width="1" fill="none">
+        <ellipse rx="11" ry="4.2"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+      </g>
+    </svg>
+    <!-- Center nucleus stays still -->
+    <div class="nucleus"></div>
+  </div>
+
+  <h1>React</h1>
+  <p>The library for web and native user interfaces</p>
+
+  <div class="hero-btns">
+    <a href="https://react.dev/learn" class="btn-learn">Learn React</a>
+    <a href="https://react.dev/reference/react" class="btn-api">API Reference</a>
+  </div>
+</section>
+
+</body>
+</html>

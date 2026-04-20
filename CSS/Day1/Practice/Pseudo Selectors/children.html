@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li :nth-of-type(2){
+           background-color: blue;
+        }
+        ul li:first-of-type{
+            background-color: yellow;
+        }
+        ul li:last-child{
+            background-color: red;
+        }
+        ul h1:last-of-type{
+            background-color: green;
+        }
+        ul h1:first-child{
+            background-color: orange;
+        }   
+      
+        ul li:nth-child(2n){
+            background-color: pink;
+        } 
+        
+        
+    </style>
+</head>
+
+<body>
+    <ul>
+        <h1>List of Bikes</h1>
+        <li>Harley Davidson</li>
+        <li>Yamaha</li>
+        <li>Honda</li>
+        <li>Ducati</li>
+
+
+        <h1>List of Cars</h1>
+        <li>Toyota</li>
+        <li>Honda</li>
+        <li>Ford</li>
+    </ul>
+</body>
+</html>

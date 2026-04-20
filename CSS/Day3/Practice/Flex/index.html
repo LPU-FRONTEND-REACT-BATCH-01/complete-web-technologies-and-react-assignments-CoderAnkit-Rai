@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        body{
+            height:1000px;
+        }
+        .container{
+            width:500px;
+            height:500px;
+            background-color: bisque;
+            position: absolute;
+            display: flex;
+            flex-direction: row-reverse;
+          
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255,125,225);
+            margin: 10px;
+            border:20px solid black;
+            border-radius: 40px;
+           
+        }
+        .items1{
+            position: relative;
+            left:100px;
+           
+         
+        }
+      .items2{
+        position:sticky;
+        top: 0;
+           
+        }
+        .items3{
+            position: fixed;
+            right:0px
+           
+        
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="items1 item">item 1</div>
+        <div class="items2 item">item 2</div>
+        <div class="items3 item">item 3</div>
+       
+    </div>
+</body>
+</html>

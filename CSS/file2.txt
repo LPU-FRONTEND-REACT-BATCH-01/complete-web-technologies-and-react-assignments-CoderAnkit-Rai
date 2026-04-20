@@ -1,0 +1,218 @@
+CSS Positioning Short Notes
+
+1. position: static
+* Position is fixed
+* Default position for all elements
+* Follows normal document flow
+* top, left, right, bottom do NOT work
+* Elements appear one after another
+
+2. position: relative
+
+* Stays in normal flow
+* Can move using top, left, right, bottom
+* Moves relative to its original position
+* Original space is still reserved
+* Used as a reference (parent) for absolute elements
+
+3. position: absolute
+
+* Removed from normal flow
+* No space is reserved
+* Positioned relative to nearest positioned parent (relative/absolute/fixed)
+* If no parent, positions relative to page (body)
+* Used for precise placement (badges, icons, overlays)
+
+4. position: sticky
+Mix of relative and fixed
+Stays in normal flow initially
+Sticks to a position when scrolling (needs top/left/right/bottom)
+Works within its parent container
+Commonly used for headers, navbars
+
+5. position: fixed
+Removed from normal flow
+Positioned relative to the viewport (screen)
+Stays fixed even when scrolling
+top, left, right, bottom work
+Used for fixed navbars, chat buttons, floating elements
+
+Key Difference:
+
+static → no control
+relative → moves but keeps space
+absolute → free positioning, no space
+sticky → scrolls then sticks
+fixed → always fixed on screen
+
+
+
+
+CSS Flexbox Short Notes
+
+1. display: flex
+
+* Makes a container flexible
+* All direct children become flex items
+
+2. flex-direction
+
+* Defines direction of items
+
+Values:
+
+* row (default) → left to right
+* column → top to bottom
+* row-reverse
+* column-reverse
+
+3. justify-content (Main Axis)
+
+* Aligns items horizontally (in row)
+
+Values:
+
+* flex-start → left
+* flex-end → right
+* center → center
+space-between → items are placed with equal space BETWEEN them; no space at start and end
+space-around → items have equal space AROUND them; space at edges is half compared to between items
+space-evenly → items have equal space EVERYWHERE; same space between items and at both ends
+
+4. align-items (Cross Axis)
+
+* Aligns items vertically (in row) 
+
+Values:
+
+* flex-start → top
+* flex-end → bottom
+* center → center
+* stretch → fill height
+
+5. gap
+
+* Space between items
+
+6. flex-wrap
+
+* Controls wrapping
+
+Values:
+
+* nowrap (default)
+* wrap → move to next line
+
+7. align-content
+
+* Works when items wrap (multiple rows)
+* Aligns rows, not items
+
+8. flex
+
+* Controls size of items
+* Example: flex: 1 → equal width
+
+Key Concept:
+
+* Main Axis → defined by flex-direction
+* Cross Axis → opposite direction
+
+Summary:
+
+* Flexbox = easy layout, alignment, spacing
+
+
+
+
+
+
+ 
+
+CSS Flexbox: grow, shrink, basis (Short Notes)
+
+1. flex-grow
+
+* Defines how much an item can grow
+* Takes a number (default: 0)
+* Higher value = grows more
+
+Example:
+.item {
+flex-grow: 1;
+}
+
+---
+
+2. flex-shrink
+
+* Defines how much an item can shrink
+* Takes a number (default: 1)
+* Higher value = shrinks more when space is less
+
+Example:
+.item {
+flex-shrink: 1;
+}
+
+---
+
+3. flex-basis
+
+* Defines initial size before grow/shrink
+* Can be px, %, auto
+
+Example:
+.item {
+flex-basis: 200px;
+}
+
+---
+
+4. flex (shorthand)
+
+* Combines grow, shrink, basis
+
+Syntax:
+flex: grow shrink basis;
+
+Example:
+.item {
+flex: 1 1 200px;
+}
+
+---
+
+Common Shortcuts:
+
+* flex: 1
+  → flex: 1 1 0
+  → items take equal space
+
+* flex: auto
+  → flex: 1 1 auto
+
+* flex: none
+  → flex: 0 0 auto
+
+---
+
+Key Concepts:
+
+* flex-grow → extra space distribution
+* flex-shrink → space reduction
+* flex-basis → starting size
+
+---
+
+Summary:
+
+* grow = expand
+* shrink = reduce
+* basis = initial size
+
+
+
+
+
+ 

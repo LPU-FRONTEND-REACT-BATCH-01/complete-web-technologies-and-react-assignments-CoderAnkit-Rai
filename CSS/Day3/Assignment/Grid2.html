@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+  margin: 0;
+  background: #2c2f5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+grid {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+  grid-template-rows: 80px 80px 80px;
+  gap: 10px;
+}
+
+.box {
+  border-radius: 5px;
+}
+
+.green { background: #6cc04a; }
+.red { background: #ff3b3b; }
+.yellow { background: #f4a62a; }
+    .box1 {
+  grid-row: 1 / 4; 
+}
+
+.box2 {
+  grid-column: 2 / 3;
+}
+
+.box3 {
+  grid-column: 3 / 4;
+}
+
+.box4 {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.box5 {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.box6 {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.box7 {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+</style>
+<body>
+    <div class="grid">
+  <div class="box green box1"></div>
+
+  <div class="box green box2"></div>
+  <div class="box red box3"></div>
+
+  <div class="box yellow box4"></div>
+  <div class="box green box5"></div>
+
+  <div class="box red box6"></div>
+  <div class="box yellow box7"></div>
+</div>
+
+</body>
+</html>

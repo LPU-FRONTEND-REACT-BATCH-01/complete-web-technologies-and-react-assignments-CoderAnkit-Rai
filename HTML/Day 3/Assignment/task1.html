@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Order</title>
+</head>
+<body>
+
+<h2>🍕 Pizza Order Here</h2>
+
+<form>
+
+<!-- Customer Details -->
+<label>First Name:</label>
+<input type="text" name="fname"><br><br>
+
+<label>Last Name:</label>
+<input type="text" name="lname"><br><br>
+
+<label>Email:</label>
+<input type="email" name="email" placeholder="abc@example.com"><br><br>
+
+<label>Contact:</label>
+<input type="text" name="contact"><br><br>
+
+<label>Preferred Delivery Date:</label>
+<input type="date" name="date"><br><br>
+
+<label>Size:</label>
+<input type="radio" name="size"> Small
+<input type="radio" name="size"> Medium
+<input type="radio" name="size"> Large<br><br>
+
+<label>Outlet:</label>
+<select>
+    <option>Select Outlet</option>
+    <option>Outlet 1</option>
+    <option>Outlet 2</option>
+</select>
+
+<br><br>
+
+<!-- Menu -->
+<h3>Menu</h3>
+
+<input type="checkbox"> Hawaiian (150.00)
+Qty: <input type="number" value="1" min="1"><br><br>
+
+<input type="checkbox"> Pepperoni (140.00)
+Qty: <input type="number" value="1" min="1"><br><br>
+
+<input type="checkbox"> Vegetable (130.00)
+Qty: <input type="number" value="1" min="1"><br><br>
+
+<!-- Extra Details -->
+<h3>Extra Details</h3>
+
+<label>Credit Card:</label>
+<input type="text" placeholder="1234-5678-9123-1111">
+<input type="button" value="Verify Card"><br><br>
+
+<label>Pin:</label>
+<input type="password"><br><br>
+
+<label>Upload Photo for Discount:</label>
+<input type="file"><br><br>
+
+<label>Additional Notes:</label><br>
+<textarea rows="4" cols="40"></textarea><br><br>
+
+<label>Rating:</label>
+<input type="range" min="1" max="5"><br><br>
+
+<!-- Submit -->
+<input type="submit" value="Submit Order">
+
+</form>
+
+</body>
+</html> 
